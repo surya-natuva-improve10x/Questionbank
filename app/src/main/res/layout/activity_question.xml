@@ -41,5 +41,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="RadioButton" />
+
+        <Button
+            android:id="@+id/sumbit_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="140dp"
+            android:text="sumbit" />
     </RadioGroup>
 </LinearLayout>
