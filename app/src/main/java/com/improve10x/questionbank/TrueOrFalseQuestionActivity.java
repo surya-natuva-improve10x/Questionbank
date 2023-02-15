@@ -27,16 +27,14 @@ public class TrueOrFalseQuestionActivity extends AppCompatActivity implements IA
         getQuestion();
         displayQuestions();
         handleSubmitBtn();
-
     }
 
     private void inIntViews() {
-        textviewtrueTxt =findViewById(R.id.textviewtrue_txt);
+        textviewtrueTxt = findViewById(R.id.textviewtrue_txt);
         radiogroupRg = findViewById(R.id.radiogroup_rg);
         trueradioRb = findViewById(R.id.trueradio_rb);
         falseradioRb = findViewById(R.id.falseradio_rb);
         verifyTrueBtn = findViewById(R.id.verify_true_btn);
-
     }
 
     @Override
@@ -44,7 +42,6 @@ public class TrueOrFalseQuestionActivity extends AppCompatActivity implements IA
         verifyTrueBtn.setOnClickListener(v -> {
             verifyAnswer();
         });
-
     }
 
     @Override
@@ -52,7 +49,6 @@ public class TrueOrFalseQuestionActivity extends AppCompatActivity implements IA
         Intent intent = getIntent();
         question = intent.getStringExtra("question");
         answer = intent.getStringExtra("answer");
-
     }
 
     @Override
@@ -63,21 +59,17 @@ public class TrueOrFalseQuestionActivity extends AppCompatActivity implements IA
     @Override
     public String getSelectedOptions() {
         int selectedOption = radiogroupRg.getCheckedRadioButtonId();
-        String result = "";
-        if(selectedOption == R.id.trueradio_rb){
-            result = "true";
-        }else if (selectedOption == R.id.falseradio_rb){
-            result = "false";
-        }
-        return result;
+        RadioButton selectedRb = findViewById(selectedOption);
+        String text = selectedRb.getText().toString();
+        return text;
     }
 
     @Override
     public void verifyAnswer() {
         String correctAnswer = getSelectedOptions();
-        if(answer.equals(correctAnswer)){
+        if (answer.equalsIgnoreCase(correctAnswer)) {
             Toast.makeText(this, "correct answer", Toast.LENGTH_SHORT).show();
-        }else{
+        } else {
             Toast.makeText(this, "wrong answer", Toast.LENGTH_SHORT).show();
         }
     }
