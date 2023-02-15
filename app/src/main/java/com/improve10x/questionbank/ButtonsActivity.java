@@ -18,6 +18,9 @@ public class ButtonsActivity extends AppCompatActivity {
     Button trueandfalseBtn;
     Button numberq5Btn;
     Button textq6Btn;
+    Button seekbarq1Btn;
+    Button seekbarq2Btn;
+    Button seekbarq3Btn;
 
 
 
@@ -35,6 +38,33 @@ public class ButtonsActivity extends AppCompatActivity {
         handletrueandfalseBtn();
         handlenumberq5Btn();
         handletextq6Btn();
+        handleSeekbarq1Btn();
+        handleSeekbarq2Btn();
+        handleSeekbarq3Btn();
+    }
+
+    private void handleSeekbarq3Btn() {
+        seekbarq3Btn.setOnClickListener(v -> {
+            String question = "What is the size of \"double\" data type in bytes";
+            String answer = "8";
+            navigatetonumberselecteScreen(question,answer);
+        });
+    }
+
+    private void handleSeekbarq2Btn() {
+        seekbarq2Btn.setOnClickListener(v -> {
+            String question = "What is the size of  data type in bytes";
+            String answer = "8";
+            navigatetonumberselecteScreen(question,answer);
+        });
+    }
+
+    private void handleSeekbarq1Btn() {
+        seekbarq1Btn.setOnClickListener(v -> {
+            String question = "What is the size of data type in bytes";
+            String answer = "4";
+            navigatetonumberselecteScreen(question,answer);
+        });
     }
 
     private void handletextq6Btn() {
@@ -144,6 +174,9 @@ public class ButtonsActivity extends AppCompatActivity {
         trueandfalseBtn = findViewById(R.id.truefalse_btn);
         numberq5Btn = findViewById(R.id.numberq5_btn);
         textq6Btn = findViewById(R.id.textq6_btn);
+        seekbarq1Btn = findViewById(R.id.seekbarq1_btn);
+        seekbarq2Btn = findViewById(R.id.seekbarq2_btn);
+        seekbarq3Btn = findViewById(R.id.seekbarq3_btn);
     }
     public void navigateToQuestionDeatilsScreen(String question, String optionA, String optionB, String optionC, String optionD,String answer){
         Intent questionDeatislsIntent = new Intent(this, SingleselectActivity.class);
@@ -170,5 +203,11 @@ public class ButtonsActivity extends AppCompatActivity {
         trueorfalseIntent.putExtra("question",question);
         trueorfalseIntent.putExtra("answer",answer);
         startActivity(trueorfalseIntent);
+    }
+    public void navigatetonumberselecteScreen(String question ,String answer){
+        Intent numberselectIntent = new Intent(this,NumberSelectQuestionActivity.class);
+        numberselectIntent.putExtra("question",question);
+        numberselectIntent.putExtra("answer",answer);
+        startActivity(numberselectIntent);
     }
 }
