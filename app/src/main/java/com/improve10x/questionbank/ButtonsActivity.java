@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.Toast;
 
 public class ButtonsActivity extends AppCompatActivity {
     Button questiononeBtn;
@@ -14,7 +13,11 @@ public class ButtonsActivity extends AppCompatActivity {
 
     Button checkboxq1Btn;
 
-    Button checkoxq2Btn;
+    Button checkboxQ2Btn;
+    Button checkboxQ3Btn;
+    Button trueandfalseBtn;
+    Button numberq5Btn;
+    Button textq6Btn;
 
 
 
@@ -26,6 +29,73 @@ public class ButtonsActivity extends AppCompatActivity {
         handleQuestion1Btn();
         handleQuestion2Btn();
         handleQuestion3Btn();
+        handleCheckbox1Btn();
+        handleCheckbox2Btn();
+        handleCheckbox3Btn();
+        handletrueandfalseBtn();
+        handlenumberq5Btn();
+        handletextq6Btn();
+    }
+
+    private void handletextq6Btn() {
+        textq6Btn.setOnClickListener(v -> {
+            String question ="Android emulator takes very less space";
+            String answer = "false";
+            navigatetotrueorfalse(question,answer);
+        });
+    }
+
+    private void handlenumberq5Btn() {
+        numberq5Btn.setOnClickListener(v -> {
+            String question ="Android Studio supports Java programming language";
+            String answer = "true";
+            navigatetotrueorfalse(question,answer);
+        });
+    }
+
+    private void handletrueandfalseBtn() {
+        trueandfalseBtn.setOnClickListener(v -> {
+            String question ="Java is a programming language?";
+            String answer = "true";
+            navigatetotrueorfalse(question,answer);
+        });
+    }
+
+    private void handleCheckbox2Btn() {
+        checkboxQ2Btn.setOnClickListener(v -> {
+            String question = "Select activity lifecycle methods in Android";
+            String optionA = "onCreate";
+            String  optionB = "onStop";
+            String  optionC = "onResume";
+            String  optionD = "onPause";
+            String answer = "bcd";
+            navigateToCheckboxScreen(question,optionA,optionB,optionC,optionD,answer);
+        });
+    }
+
+    private void handleCheckbox3Btn() {
+        checkboxQ3Btn.setOnClickListener(v -> {
+            String question ="Which of the following are planets";
+            String optionA = "Mercury";
+            String optionB = "Sun";
+            String optionC = "Jupiter";
+            String optionD = "Saturn";
+            String answer = "abc";
+            navigateToCheckboxScreen(question,optionA,optionB,optionC,optionD,answer);
+        });
+    }
+
+    private void handleCheckbox1Btn() {
+        checkboxq1Btn.setOnClickListener(v -> {
+            String question = "Select all the parts of a computer";
+            String optionA = " cat";
+            String  optionB = "mouse";
+            String  optionC = "monitor";
+            String  optionD = "keyboard";
+            String answer = "a";
+            navigateToCheckboxScreen(question,optionA,optionB,optionC,optionD,answer);
+        });
+
     }
 
     private void handleQuestion3Btn() {
@@ -69,10 +139,14 @@ public class ButtonsActivity extends AppCompatActivity {
         questiontwoBtn = findViewById(R.id.questiontwo_btn);
         questiothreeBtn = findViewById(R.id.questionthree_btn);
         checkboxq1Btn = findViewById(R.id.checkbox1_btn);
-        checkoxq2Btn = findViewById(R.id.checkbox2_btn);
+        checkboxQ2Btn = findViewById(R.id.checkboxQ2_btn);
+        checkboxQ3Btn = findViewById(R.id.checkboxQ3_btn);
+        trueandfalseBtn = findViewById(R.id.truefalse_btn);
+        numberq5Btn = findViewById(R.id.numberq5_btn);
+        textq6Btn = findViewById(R.id.textq6_btn);
     }
     public void navigateToQuestionDeatilsScreen(String question, String optionA, String optionB, String optionC, String optionD,String answer){
-        Intent questionDeatislsIntent = new Intent(this,QuestionActivity.class);
+        Intent questionDeatislsIntent = new Intent(this, SingleselectActivity.class);
         questionDeatislsIntent.putExtra("question",question);
         questionDeatislsIntent.putExtra("option1",optionA);
         questionDeatislsIntent.putExtra("option2",optionB);
@@ -80,5 +154,21 @@ public class ButtonsActivity extends AppCompatActivity {
         questionDeatislsIntent.putExtra("option4",optionD);
         questionDeatislsIntent.putExtra("answer",answer);
         startActivity(questionDeatislsIntent);
+    }
+    public void navigateToCheckboxScreen(String question,String optionA, String optionB, String optionC,String optionD,String answer){
+        Intent checkBoxIntent = new Intent(this, MultiselectActivity.class);
+        checkBoxIntent.putExtra("question",question);
+        checkBoxIntent.putExtra("option1",optionA);
+        checkBoxIntent.putExtra("option2",optionB);
+        checkBoxIntent.putExtra("option3",optionC);
+        checkBoxIntent.putExtra("option4",optionD);
+        checkBoxIntent.putExtra("answer",answer);
+        startActivity(checkBoxIntent);
+    }
+    public void navigatetotrueorfalse(String question,String answer){
+        Intent trueorfalseIntent = new Intent(this,TrueOrFalseQuestionActivity.class);
+        trueorfalseIntent.putExtra("question",question);
+        trueorfalseIntent.putExtra("answer",answer);
+        startActivity(trueorfalseIntent);
     }
 }

@@ -10,7 +10,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class QuestionActivity extends AppCompatActivity {
+public class SingleselectActivity extends AppCompatActivity implements IAllMethodsActivity{
     TextView textviewTxt;
     RadioGroup radiogroupRg;
     RadioButton radiooneRb;
@@ -30,42 +30,23 @@ public class QuestionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
         initviews();
-        getQuestions();
+        getQuestion();
+        handleSubmitBtn();
         displayQuestions();
-        handleSumbitBtn();
+
 
     }
 
-    private void handleSumbitBtn() {
+
+    @Override
+    public void handleSubmitBtn() {
         sumbitBtn.setOnClickListener(v -> {
             verifyAnswer();
         });
     }
 
-    private void verifyAnswer() {
-        String correctAnswer = getselectedOption();
-        if (answer.equals(correctAnswer)){
-            Toast.makeText(this, "correct answer ", Toast.LENGTH_SHORT).show();
-        }else{
-            Toast.makeText(this, "wrong answer", Toast.LENGTH_SHORT).show();
-        }
-    }
-    private String getselectedOption(){
-        int selectedOption = radiogroupRg.getCheckedRadioButtonId();
-        String result = "";
-        if(selectedOption == R.id.radioone_rb){
-             result = "a";
-        }else if (selectedOption == R.id.radiotwo_rb){
-            result = "b";
-        } else if (selectedOption == R.id.radiothree_rb) {
-            result = "c";
-        } else if (selectedOption == R.id.radiofour_rb) {
-            result = "d";
-        }
-        return result;
-    }
-
-    private void getQuestions() {
+    @Override
+    public void getQuestion() {
         Intent intent = getIntent();
         question = intent.getStringExtra("question");
         optionA = intent.getStringExtra("option1");
@@ -76,7 +57,46 @@ public class QuestionActivity extends AppCompatActivity {
     }
 
 
-    private void initviews() {
+
+    @Override
+    public void displayQuestions() {
+        textviewTxt.setText(question);
+        radiooneRb.setText(optionA);
+        radiotwoRb.setText(optionB);
+        radiothreeRb.setText(optionC);
+        radiofourRb.setText(optionD);
+
+    }
+
+    @Override
+    public String getSelectedOptions() {
+        int selectedOption = radiogroupRg.getCheckedRadioButtonId();
+        String result = "";
+        if(selectedOption == R.id.radioone_rb){
+            result = "a";
+        }else if (selectedOption == R.id.radiotwo_rb){
+            result = "b";
+        } else if (selectedOption == R.id.radiothree_rb) {
+            result = "c";
+        } else if (selectedOption == R.id.radiofour_rb) {
+            result = "d";
+        }
+        return result;
+    }
+
+    @Override
+    public void verifyAnswer() {
+        String correctAnswer = getSelectedOptions();
+        if (answer.equals(correctAnswer)){
+            Toast.makeText(this, "correct answer ", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(this, "wrong answer", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+
+    public void initviews() {
         textviewTxt = findViewById(R.id.textview_txt);
         radiogroupRg = findViewById(R.id.radiogroup_rg);
         radiooneRb = findViewById(R.id.radioone_rb);
@@ -85,11 +105,5 @@ public class QuestionActivity extends AppCompatActivity {
         radiofourRb = findViewById(R.id.radiofour_rb);
         sumbitBtn = findViewById(R.id.sumbit_btn);
     }
-    private  void displayQuestions(){
-        textviewTxt.setText(question);
-        radiooneRb.setText(optionA);
-        radiotwoRb.setText(optionB);
-        radiothreeRb.setText(optionC);
-        radiofourRb.setText(optionD);
-    }
+
 }

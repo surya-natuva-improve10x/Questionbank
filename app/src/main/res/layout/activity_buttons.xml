@@ -8,38 +8,80 @@
     android:orientation="vertical"
     tools:context=".ButtonsActivity">
 
+
+
     <Button
         android:id="@+id/questionone_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="30dp"
+        android:layout_margin="10dp"
         android:text="Question no.1" />
 
     <Button
         android:id="@+id/questiontwo_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="30dp"
+        android:layout_margin="10dp"
         android:text="Question no.2" />
 
     <Button
         android:id="@+id/questionthree_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="30dp"
+        android:layout_margin="10dp"
         android:text="Question no.3" />
 
     <Button
         android:id="@+id/checkbox1_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="30dp"
+        android:layout_margin="10dp"
         android:text="checkboxQ1" />
 
     <Button
-        android:id="@+id/checkbox2_btn"
+        android:id="@+id/checkboxQ2_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="30dp"
+        android:layout_margin="10dp"
         android:text="CheckboxQ2" />
+
+    <Button
+        android:id="@+id/checkboxQ3_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="CheckBOxq3" />
+
+    <Button
+        android:id="@+id/truefalse_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="TRUE AND FALSE Q4" />
+
+    <Button
+        android:id="@+id/numberq5_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="NUMberQ5" />
+
+    <Button
+        android:id="@+id/textq6_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="TEXTQ6" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button" />
 </LinearLayout>
