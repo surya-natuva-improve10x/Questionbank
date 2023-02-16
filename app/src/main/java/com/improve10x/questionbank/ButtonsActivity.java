@@ -21,6 +21,10 @@ public class ButtonsActivity extends AppCompatActivity {
     Button seekbarq1Btn;
     Button seekbarq2Btn;
     Button seekbarq3Btn;
+    Button filltheblankBtn;
+
+    Button fillblank2Btn;
+    Button fillblank3Btn;
 
 
 
@@ -41,6 +45,33 @@ public class ButtonsActivity extends AppCompatActivity {
         handleSeekbarq1Btn();
         handleSeekbarq2Btn();
         handleSeekbarq3Btn();
+        handlefillblankBtn1();
+        handlefillblanlBTn2();
+        handlefillblanlBTn3();
+    }
+
+    private void handlefillblanlBTn3() {
+        fillblank3Btn.setOnClickListener(v -> {
+            String question = " _____________ component is used to suppoer vertical Scrolling";
+            String answer = "Scrollview";
+            navigatetofilltheblankscreen(question,answer);
+        });
+    }
+
+    private void handlefillblanlBTn2() {
+        fillblank2Btn.setOnClickListener(v -> {
+            String question = " Andorid is an ________ ";
+            String answer = "Operating System";
+            navigatetofilltheblankscreen(question,answer);
+        });
+    }
+
+    private void handlefillblankBtn1() {
+        filltheblankBtn.setOnClickListener(v -> {
+            String question = "Java ______ can contain variables and methods";
+            String answer = "Class";
+            navigatetofilltheblankscreen(question,answer);
+        });
     }
 
     private void handleSeekbarq3Btn() {
@@ -177,6 +208,9 @@ public class ButtonsActivity extends AppCompatActivity {
         seekbarq1Btn = findViewById(R.id.seekbarq1_btn);
         seekbarq2Btn = findViewById(R.id.seekbarq2_btn);
         seekbarq3Btn = findViewById(R.id.seekbarq3_btn);
+        filltheblankBtn = findViewById(R.id.filltheblank_btn);
+        fillblank2Btn = findViewById(R.id.fillblank2_btn);
+        fillblank3Btn = findViewById(R.id.fillblank3_btn);
     }
     public void navigateToQuestionDeatilsScreen(String question, String optionA, String optionB, String optionC, String optionD,String answer){
         Intent questionDeatislsIntent = new Intent(this, SingleselectActivity.class);
@@ -209,5 +243,11 @@ public class ButtonsActivity extends AppCompatActivity {
         numberselectIntent.putExtra("question",question);
         numberselectIntent.putExtra("answer",answer);
         startActivity(numberselectIntent);
+    }
+    public void navigatetofilltheblankscreen(String question,String answer){
+        Intent textquestionIntent = new Intent(this,TextQuestionActivity.class);
+        textquestionIntent.putExtra("question",question);
+        textquestionIntent.putExtra("answer",answer);
+        startActivity(textquestionIntent);
     }
 }

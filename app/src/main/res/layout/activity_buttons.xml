@@ -101,6 +101,27 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:text="seekbarq3" />
+
+            <Button
+                android:id="@+id/filltheblank_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="fill the balnk " />
+
+            <Button
+                android:id="@+id/fillblank2_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="fill the blankq2" />
+
+            <Button
+                android:id="@+id/fillblank3_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="fill the blank q3" />
         </LinearLayout>
     </ScrollView>
 
